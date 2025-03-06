@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 module "web_cluster_stage" {
-  source = "github.com/ebisu2018/terraform-up-running.git/web_cluster?ref=v0.1.1"
+  source = "github.com/ebisu2018/terraform-up-running.git/web_cluster?ref=v1.0"
 
   cluster_name = "web-cluster-stage"
   ami_id = "ami-06c6f3fa7959e5fdd"
@@ -13,6 +13,7 @@ module "web_cluster_stage" {
   max_size = 1
   desired = 1
   user_data_script = "${path.module}/user-data.sh"
+  enable_autoscaling = false
 }
 
 
