@@ -22,7 +22,7 @@ variable "instance_type" {
 variable "instance_tags" {
   type = map(string)
   default = {
-    Name = "terraform-single-web-server"
+    Name = "terraform-web-cluster"
   }
 }
 
@@ -33,5 +33,12 @@ variable "state_bucket" {
 
 variable "dynamodb_table" {
   type = string
-  default = "terraform-state-bucket-locks"
+  default = "terraform-state-dynamodb-lock"
+}
+
+
+locals {
+  any_ports = 0
+  any_protocols = "-1"
+  cidr_blocks = ["0.0.0.0/0"]
 }

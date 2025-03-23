@@ -14,7 +14,7 @@ module "web_cluster_stage" {
   min_size = 2
   max_size = 10
   desired = 2
-  user_data_script = "${path.module}/user-data.sh"
+  user_data = "${path.module}/user-data.sh"
 }
 
 

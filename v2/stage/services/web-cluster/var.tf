@@ -1,7 +1,7 @@
 variable "server_port" {
   description = "Port of the server will use for internal request"
   type = number
-  default = 8080
+  default = 80
 }
 
 variable "alb_port" {
@@ -24,4 +24,11 @@ variable "instance_tags" {
   default = {
     Name = "terraform-single-web-server"
   }
+}
+
+
+locals {
+  any_ports = 0
+  any_protocols = "-1"
+  cidr_blocks = ["0.0.0.0/0"]
 }

@@ -2,4 +2,5 @@
 *.tfstate.backup
 .terraform
 .idea
-*.terraform.tfstate.lock.info
+*.terraform.*
+.terraform.*

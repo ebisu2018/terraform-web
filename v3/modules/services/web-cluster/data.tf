@@ -17,12 +17,3 @@ data "terraform_remote_state" "db" {
     key = var.db_remote_state_key
   }
 }
-
-data "template_file" "user-data" {
-  template = file(var.user_data_script)
-  vars = {
-    server_port = local.http_port
-    db_address = data.terraform_remote_state.db.outputs.address
-    db_port = data.terraform_remote_state.db.outputs.port
-  }
-}

@@ -10,19 +10,19 @@ module "web_cluster_stage" {
   ami_id = "ami-06c6f3fa7959e5fdd"
   instance_type = "t2.micro"
   min_size = 1
-  max_size = 3
-  desired = 2
+  max_size = 1
+  desired = 1
   user_data_script = "${path.module}/user-data.sh"
   enable_autoscaling = false
 }
 
 
 # 自定义sg规则，更灵活
-resource "aws_security_group_rule" "allow_testing-inbound" {
-  from_port         = 12345
-  protocol          = "tcp"
-  security_group_id = module.web_cluster_stage.alb_security_group_id
-  to_port           = 12345
-  type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
-}
+# resource "aws_security_group_rule" "allow_testing-inbound" {
+#   from_port         = 12345
+#   protocol          = "tcp"
+#   security_group_id = module.web_cluster_stage.alb_security_group_id
+#   to_port           = 12345
+#   type              = "ingress"
+#   cidr_blocks = ["0.0.0.0/0"]
+# }

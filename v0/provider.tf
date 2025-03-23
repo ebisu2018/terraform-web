@@ -10,7 +10,4 @@ terraform {
       version = "5.92.0"
     }
   }
-#   backend "s3" {
-#     key = "global/s3/terraform.tfstate"
-#   }
 }

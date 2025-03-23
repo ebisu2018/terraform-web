@@ -1,12 +1,6 @@
-# output "public_ip" {
-#   description = "The public IP address of the web server"
-#   value = aws_instance.demo-server.public_ip
-# }
-
 output "alb_dns" {
-  value = aws_lb.demo-lb.dns_name
+  value = aws_lb.front-alb.dns_name
 }
-
 
 # subnets = tolist([
 #   "subnet-08058823c682911ca",
@@ -17,10 +11,10 @@ output "subnets" {
   value = data.aws_subnets.default.ids
 }
 
-output "s3_bucket_arn" {
-  value = aws_s3_bucket.terraform_state.arn
-}
-
-output "dynamodb_table_name" {
-  value = aws_dynamodb_table.state_locks.name
-}
+# output "s3_bucket_arn" {
+#   value = aws_s3_bucket.terraform_state_bucket.arn
+# }
+#
+# output "dynamodb_table_name" {
+#   value = aws_dynamodb_table.state_lock.name
+# }

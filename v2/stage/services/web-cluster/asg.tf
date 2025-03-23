@@ -2,13 +2,7 @@ resource "aws_launch_template" "instance-tpl" {
   image_id = var.ami_id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.instance-sg.id]
-#   user_data = base64encode(<<-EOF
-# #! /bin/bash
-# echo "Hello World" > index.html
-# nohup busybox httpd -f -p ${var.server_port}&
-# EOF
-#   )
-  user_data = data.template_file.user-data.rendered
+  user_data = base64encode(file("${path.module}/user-data.sh"))
   lifecycle {
     create_before_destroy = true
   }

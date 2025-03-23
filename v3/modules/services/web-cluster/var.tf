@@ -34,7 +34,7 @@ variable "desired" {
   type = number
 }
 
-variable "user_data_script" {
+variable "user_data" {
   type = string
 }
 
